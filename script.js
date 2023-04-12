@@ -40,24 +40,34 @@ function findUni(value) {
   console.log(value.charCodeAt(0));
   var num_val = num.length;
   var padding;
-  if (num_val > 8) {
+  if (num_val > 11) {
     padding = 16 - num_val;
+  } else if (num_val > 7) {
+    padding = 11 - num_val;
   } else {
-    padding = 8 - num_val;
+    padding = 0;
   }
-  // var padding = num_val < 16 ? 16 - num_val : num_val % 16;
+
   while (padding > 0) {
     var pad = "0";
     num = pad + num;
     padding--;
   }
-
-  if (num.length > 8) {
+  console.log(num.length);
+  if (num.length == 16) {
     var byte1 = "1110" + num[0] + num[1] + num[2] + num[3];
     var byte2 = "10" + num[4] + num[5] + num[6] + num[7] + num[8] + num[9];
     var byte3 =
       "10" + num[10] + num[11] + num[12] + num[13] + num[14] + num[15];
     return [byte1, byte2, byte3];
+  } else if (num.length == 11) {
+    var byte1 = "110" + num[0] + num[1] + num[2] + num[3] + num[4];
+    var byte2 = "10" + num[5] + num[6] + num[7] + num[8] + num[9] + num[10];
+    console.log(byte1);
+    console.log(byte2);
+    return [byte1, byte2];
+  } else {
+    var byte1 = "0" + num;
+    return byte1;
   }
-  return num;
 }
