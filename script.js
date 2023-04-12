@@ -1,5 +1,6 @@
 var text = document.getElementById("text");
 var binary = document.getElementById("binary");
+var notification = document.getElementById("notification");
 var copy = document.getElementById("copy");
 
 var text_val = "";
@@ -8,15 +9,24 @@ copy.addEventListener("click", copyBinary);
 text.addEventListener("keyup", changeText);
 
 function copyBinary() {
-  binary.select();
-  binary.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(binary.value);
-
-  var toastElList = [].slice.call(document.querySelectorAll(".toast"));
-  var toastList = toastElList.map(function (toastEl) {
-    return new bootstrap.Toast(toastEl);
-  });
-  toastList.forEach((toast) => toast.show());
+  if (binary.value != "") {
+    binary.select();
+    binary.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(binary.value);
+    notification.innerText = "Binary text copied to clipboard!";
+    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl);
+    });
+    toastList.forEach((toast) => toast.show());
+  } else {
+    notification.innerText = "No binary text to copy";
+    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl);
+    });
+    toastList.forEach((toast) => toast.show());
+  }
 }
 
 function changeText() {

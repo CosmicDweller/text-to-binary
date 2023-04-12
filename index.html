@@ -28,7 +28,8 @@
       <div class="m-5 d-flex flex-column align-items-center">
         <h3 style="color: #d68fd6">Text:</h3>
         <textarea
-          style="background-color: #defff2; color: #1b998b"
+          style="background-color: #defff2; color: #1b998b; border-color: #9dd1bc!important;"
+          class="form-control border border-3"
           name="text"
           id="text"
           cols="50"
@@ -39,7 +40,8 @@
       <div class="m-5 d-flex flex-column align-items-center">
         <h3 style="color: #d68fd6">Binary:</h3>
         <textarea
-          style="background-color: #defff2; color: #1b998b"
+          style="background-color: #defff2; color: #1b998b; border-color: #9dd1bc!important;"
+          class="form-control border border-3"
           name="binary"
           id="binary"
           cols="50"
@@ -59,8 +61,8 @@
           <strong class="me-auto">Notification</strong>
           <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
         </div>
-        <div class="toast-body" style="background-color: #defff2; color: #505168;">
-          <p>Binary text copied to clipboard!</p>
+        <div class="toast-body"  style="background-color: #defff2; color: #505168;">
+          <p id="notification">Binary text copied to clipboard!</p>
         </div>
       </div>
     </div>
