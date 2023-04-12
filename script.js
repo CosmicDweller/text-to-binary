@@ -45,7 +45,7 @@ function findUni(value) {
   } else if (num_val > 7) {
     padding = 11 - num_val;
   } else {
-    padding = 0;
+    padding = 7 - num_val;
   }
 
   while (padding > 0) {
