@@ -2,11 +2,18 @@ var text = document.getElementById("text");
 var binary = document.getElementById("binary");
 var notification = document.getElementById("notification");
 var copy = document.getElementById("copy");
+var clear = document.getElementById("clear");
 
 var text_val = "";
 
 copy.addEventListener("click", copyBinary);
+clear.addEventListener("click", clearText);
 text.addEventListener("keyup", changeText);
+
+function clearText() {
+  text.value = "";
+  changeText();
+}
 
 function copyBinary() {
   if (binary.value != "") {
